@@ -1,532 +1,481 @@
 @extends('layouts.app')
 
-@section('title', 'MidasTech - Advanced Multi-Tenant SaaS Platform')
-
 @section('content')
 <!-- Hero Section -->
-<section id="home" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 overflow-hidden">
-    <!-- Background Animation -->
+<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
+    <div class="absolute inset-0 bg-black/40"></div>
+    
+    <!-- Animated Background Elements -->
     <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-indigo-900/90 to-purple-900/90"></div>
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
     </div>
 
     <div class="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
-        <div class="mb-8">
-            <div class="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-6 border border-white/20">
-                <i class="fas fa-rocket text-blue-300 mr-2"></i>
-                <span class="text-sm font-medium">Advanced Multi-Tenant SaaS Platform</span>
-            </div>
-        </div>
-
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Transform Your Business with
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300">
-                MidasTech
-            </span>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-purple-300 animate-fade-in">
+            JetBeam Technologies
         </h1>
-        
-        <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto leading-relaxed">
-            Experience the future of SaaS with our cutting-edge multi-tenant platform. 
-            Isolated data, custom subdomains, and enterprise-grade security.
+        <p class="text-xl md:text-2xl mb-8 text-blue-100 animate-fade-in-delay">
+            Accelerating Innovation Through Advanced Technology Solutions
         </p>
-
-        <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-            <a href="/demo-setup" class="group bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-blue-500/25 transform hover:-translate-y-1">
-                <i class="fas fa-play mr-3 group-hover:animate-pulse"></i>
-                Start Free Demo
-                <span class="block text-sm font-normal opacity-90">1 Month Trial - No Credit Card</span>
-            </a>
-            <a href="#features" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300">
-                <i class="fas fa-info-circle mr-3"></i>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
+            <button class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                Explore Solutions
+            </button>
+            <button class="bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300">
                 Learn More
-            </a>
-        </div>
-
-        <!-- Trust Indicators -->
-        <div class="flex flex-wrap justify-center items-center gap-8 opacity-70">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-shield-alt text-green-400"></i>
-                <span class="text-sm">Enterprise Security</span>
-            </div>
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-database text-blue-400"></i>
-                <span class="text-sm">Data Isolation</span>
-            </div>
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-globe text-purple-400"></i>
-                <span class="text-sm">Custom Subdomains</span>
-            </div>
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-clock text-yellow-400"></i>
-                <span class="text-sm">24/7 Support</span>
-            </div>
+            </button>
         </div>
     </div>
+</section>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#features" class="text-white/70 hover:text-white transition-colors duration-300">
-            <i class="fas fa-chevron-down text-2xl"></i>
-        </a>
+<!-- Stats Section -->
+<section class="py-20 bg-gradient-to-r from-slate-50 to-blue-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            @php
+                $stats = [
+                    ['number' => 500, 'label' => 'Projects Completed', 'suffix' => '+'],
+                    ['number' => 50, 'label' => 'Happy Clients', 'suffix' => '+'],
+                    ['number' => 99.9, 'label' => 'Uptime Guarantee', 'suffix' => '%'],
+                    ['number' => 24, 'label' => 'Support Available', 'suffix' => '/7']
+                ];
+            @endphp
+            
+            @foreach($stats as $stat)
+            <div class="text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-2">
+                    {{ is_numeric($stat['number']) ? number_format((float)$stat['number'], ($stat['number'] == floor($stat['number']) ? 0 : 1)) : $stat['number'] }}{{ $stat['suffix'] }}
+                </div>
+                <div class="text-slate-600 font-medium">{{ $stat['label'] }}</div>
+            </div>
+            @endforeach
+        </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section id="features" class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+<section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
-        <!-- Section Header -->
         <div class="text-center mb-16">
-            <div class="inline-flex items-center bg-blue-100 rounded-full px-6 py-2 mb-6">
-                <i class="fas fa-star text-blue-600 mr-2"></i>
-                <span class="text-blue-800 font-semibold">Platform Features</span>
-            </div>
-            <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                Everything You Need for Success
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+                Cutting-Edge <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Technology</span>
             </h2>
             <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-                Our comprehensive SaaS platform provides all the tools and features your business needs to thrive in the digital age.
+                Harness the power of advanced technology solutions designed to propel your business into the future
             </p>
         </div>
 
-        <!-- Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <!-- Feature 1: Multi-Tenancy -->
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-blue-100/50 hover-lift">
-                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-building text-white text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-4">Multi-Tenant Architecture</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">
-                    Complete data isolation for each tenant with custom subdomains. Your data stays private and secure with enterprise-grade separation.
-                </p>
-                <div class="flex items-center text-blue-600 font-semibold">
-                    <span>Learn More</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @php
+                $features = [
+                    [
+                        'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>',
+                        'title' => 'Lightning Fast Performance',
+                        'description' => 'Experience blazing-fast speeds with our optimized infrastructure and cutting-edge technology stack.'
+                    ],
+                    [
+                        'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>',
+                        'title' => 'Enterprise Security',
+                        'description' => 'Bank-level security protocols protect your data with advanced encryption and multi-layer protection systems.'
+                    ],
+                    [
+                        'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>',
+                        'title' => 'AI-Powered Intelligence',
+                        'description' => 'Leverage artificial intelligence and machine learning to automate processes and gain valuable insights.'
+                    ]
+                ];
+            @endphp
 
-            <!-- Feature 2: Custom Subdomains -->
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-purple-100/50 hover-lift">
-                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-globe text-white text-2xl"></i>
+            @foreach($features as $feature)
+            <div class="bg-gradient-to-br from-white to-slate-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-slate-100 group">
+                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {!! $feature['icon'] !!}
+                    </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-4">Custom Subdomains</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">
-                    Get your own branded subdomain like yourcompany.midastech.in. Professional appearance with full customization options.
-                </p>
-                <div class="flex items-center text-purple-600 font-semibold">
-                    <span>Get Started</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">{{ $feature['title'] }}</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed">{{ $feature['description'] }}</p>
+                <button class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                    Learn More
+                </button>
             </div>
-
-            <!-- Feature 3: Data Security -->
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-green-100/50 hover-lift">
-                <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-shield-alt text-white text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-4">Enterprise Security</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">
-                    Bank-level security with encrypted data storage, secure file management, and complete tenant isolation for maximum protection.
-                </p>
-                <div class="flex items-center text-green-600 font-semibold">
-                    <span>View Security</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </div>
-            </div>
-
-            <!-- Feature 4: Quick Setup -->
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-orange-100/50 hover-lift">
-                <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-rocket text-white text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-4">Instant Demo Setup</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">
-                    Get started in minutes with our quick demo setup. 1-month free trial with full features - no credit card required.
-                </p>
-                <div class="flex items-center text-orange-600 font-semibold">
-                    <span>Start Demo</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </div>
-            </div>
-
-            <!-- Feature 5: Auto Management -->
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-cyan-100/50 hover-lift">
-                <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-cogs text-white text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-4">Automated Management</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">
-                    Automatic tenant cleanup, payment processing, and subscription management. Focus on your business, we handle the tech.
-                </p>
-                <div class="flex items-center text-cyan-600 font-semibold">
-                    <span>See Features</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </div>
-            </div>
-
-            <!-- Feature 6: 24/7 Support -->
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-indigo-100/50 hover-lift">
-                <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-headset text-white text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-4">24/7 Expert Support</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">
-                    Round-the-clock technical support from our expert team. Get help when you need it with priority support channels.
-                </p>
-                <div class="flex items-center text-indigo-600 font-semibold">
-                    <span>Contact Support</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA Section -->
-        <div class="text-center">
-            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white shadow-2xl">
-                <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Business?</h3>
-                <p class="text-xl mb-8 opacity-90">Join thousands of companies already using MidasTech</p>
-                <a href="/demo-setup" class="bg-white text-blue-600 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                    <i class="fas fa-play mr-3"></i>
-                    Start Your Free Demo Now
-                </a>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
 
-<!-- Pricing Section -->
-<section id="pricing" class="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+<!-- Services Section -->
+<section class="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
     <div class="max-w-7xl mx-auto px-4">
-        <!-- Section Header -->
         <div class="text-center mb-16">
-            <div class="inline-flex items-center bg-purple-100 rounded-full px-6 py-2 mb-6">
-                <i class="fas fa-tags text-purple-600 mr-2"></i>
-                <span class="text-purple-800 font-semibold">Pricing Plans</span>
-            </div>
-            <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                Choose Your Perfect Plan
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Services</span>
             </h2>
-            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-                Flexible pricing options designed to grow with your business. Start free and upgrade as you scale.
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                Comprehensive technology solutions tailored to accelerate your digital transformation journey
             </p>
         </div>
 
-        <!-- Pricing Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <!-- Starter Plan -->
-            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-500">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Starter</h3>
-                    <p class="text-slate-600 mb-6">Perfect for small businesses</p>
-                    <div class="text-4xl font-bold text-slate-800 mb-2">₹999<span class="text-lg font-normal text-slate-500">/month</span></div>
-                    <p class="text-sm text-slate-500">Billed monthly</p>
-                </div>
-                
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>1 Custom Subdomain</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>10GB Storage</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>Up to 100 Users</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>Email Support</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>Basic Analytics</span>
-                    </li>
-                </ul>
-                
-                <a href="/demo-setup" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-800 py-3 rounded-xl font-semibold transition-all duration-300">
-                    Start Free Trial
-                </a>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @php
+                $services = [
+                    [
+                        'title' => 'Cloud Infrastructure',
+                        'description' => 'Scalable cloud solutions with 99.9% uptime guarantee and enterprise-grade security.',
+                        'price' => 'Starting at $299/month',
+                        'features' => ['Auto-scaling', '24/7 Monitoring', 'Backup & Recovery', 'SSL Certificates']
+                    ],
+                    [
+                        'title' => 'AI Development',
+                        'description' => 'Custom AI and machine learning solutions to automate and optimize your business processes.',
+                        'price' => 'Starting at $5,000/project',
+                        'features' => ['Custom ML Models', 'Data Analytics', 'Predictive Insights', 'API Integration']
+                    ],
+                    [
+                        'title' => 'Mobile Applications',
+                        'description' => 'Native and cross-platform mobile apps with stunning UI/UX and robust functionality.',
+                        'price' => 'Starting at $15,000/app',
+                        'features' => ['iOS & Android', 'Cloud Integration', 'Push Notifications', 'Analytics Dashboard']
+                    ],
+                    [
+                        'title' => 'Web Development',
+                        'description' => 'Modern web applications built with cutting-edge frameworks and responsive design.',
+                        'price' => 'Starting at $8,000/project',
+                        'features' => ['Responsive Design', 'SEO Optimized', 'Fast Loading', 'CMS Integration']
+                    ],
+                    [
+                        'title' => 'DevOps Solutions',
+                        'description' => 'Streamline your development workflow with automated CI/CD pipelines and monitoring.',
+                        'price' => 'Starting at $2,000/month',
+                        'features' => ['CI/CD Pipelines', 'Container Management', 'Monitoring Tools', 'Security Scanning']
+                    ],
+                    [
+                        'title' => 'Consulting Services',
+                        'description' => 'Strategic technology consulting to guide your digital transformation initiatives.',
+                        'price' => 'Starting at $200/hour',
+                        'features' => ['Technology Audit', 'Architecture Design', 'Best Practices', 'Training & Support']
+                    ]
+                ];
+            @endphp
 
-            <!-- Professional Plan (Popular) -->
-            <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 shadow-2xl text-white transform scale-105 relative">
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span class="bg-gradient-to-r from-orange-400 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-bold">
-                        Most Popular
-                    </span>
+            @foreach($services as $service)
+            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:-translate-y-2 group">
+                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors duration-300">{{ $service['title'] }}</h3>
+                <p class="text-blue-100 mb-6 leading-relaxed">{{ $service['description'] }}</p>
+                <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-6">
+                    {{ $service['price'] }}
                 </div>
-                
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold mb-2">Professional</h3>
-                    <p class="text-blue-100 mb-6">Best for growing companies</p>
-                    <div class="text-4xl font-bold mb-2">₹2,999<span class="text-lg font-normal text-blue-200">/month</span></div>
-                    <p class="text-sm text-blue-200">Billed monthly</p>
-                </div>
-                
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-300 mr-3"></i>
-                        <span>5 Custom Subdomains</span>
+                <ul class="space-y-2 mb-8">
+                    @foreach($service['features'] as $feature)
+                    <li class="flex items-center text-blue-100">
+                        <svg class="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        {{ $feature }}
                     </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-300 mr-3"></i>
-                        <span>100GB Storage</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-300 mr-3"></i>
-                        <span>Up to 1,000 Users</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-300 mr-3"></i>
-                        <span>Priority Support</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-300 mr-3"></i>
-                        <span>Advanced Analytics</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-300 mr-3"></i>
-                        <span>API Access</span>
-                    </li>
+                    @endforeach
                 </ul>
-                
-                <a href="/demo-setup" class="block w-full text-center bg-white text-blue-600 py-3 rounded-xl font-bold transition-all duration-300 hover:bg-blue-50 shadow-lg">
-                    Start Free Trial
-                </a>
+                <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+                    Get Started
+                </button>
             </div>
-
-            <!-- Enterprise Plan -->
-            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-500">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Enterprise</h3>
-                    <p class="text-slate-600 mb-6">For large organizations</p>
-                    <div class="text-4xl font-bold text-slate-800 mb-2">₹9,999<span class="text-lg font-normal text-slate-500">/month</span></div>
-                    <p class="text-sm text-slate-500">Billed monthly</p>
-                </div>
-                
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>Unlimited Subdomains</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>1TB Storage</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>Unlimited Users</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>24/7 Phone Support</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>Custom Integrations</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-500 mr-3"></i>
-                        <span>Dedicated Manager</span>
-                    </li>
-                </ul>
-                
-                <a href="/demo-setup" class="block w-full text-center bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 rounded-xl font-semibold transition-all duration-300">
-                    Start Free Trial
-                </a>
-            </div>
-        </div>
-
-        <!-- Money Back Guarantee -->
-        <div class="text-center">
-            <div class="inline-flex items-center bg-green-100 rounded-full px-6 py-3">
-                <i class="fas fa-shield-alt text-green-600 mr-2"></i>
-                <span class="text-green-800 font-semibold">30-Day Money Back Guarantee</span>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
 
 <!-- About Section -->
-<section id="about" class="py-20 bg-gradient-to-br from-slate-50 to-white">
+<section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <!-- Content -->
             <div>
-                <div class="inline-flex items-center bg-blue-100 rounded-full px-6 py-2 mb-6">
-                    <i class="fas fa-info-circle text-blue-600 mr-2"></i>
-                    <span class="text-blue-800 font-semibold">About MidasTech</span>
-                </div>
-                
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                    Pioneering the Future of SaaS
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+                    About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">JetBeam</span>
                 </h2>
-                
-                <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-                    MidasTech is at the forefront of multi-tenant SaaS innovation, providing businesses with secure, scalable, and customizable solutions that drive growth and efficiency.
+                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    Founded in 2018, JetBeam Technologies has been at the forefront of digital innovation, 
+                    helping businesses transform their operations through cutting-edge technology solutions.
+                </p>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    Our team of expert engineers, designers, and consultants work collaboratively to deliver 
+                    solutions that not only meet today's challenges but anticipate tomorrow's opportunities.
                 </p>
                 
-                <div class="space-y-6 mb-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-users text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-800 mb-2">Expert Team</h3>
-                            <p class="text-slate-600">Our experienced developers and architects ensure your platform runs smoothly and securely.</p>
-                        </div>
-                    </div>
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    @php
+                        $achievements = [
+                            ['number' => 6, 'label' => 'Years Experience'],
+                            ['number' => 150, 'label' => 'Team Members'],
+                            ['number' => 25, 'label' => 'Countries Served'],
+                            ['number' => 98, 'label' => 'Client Satisfaction', 'suffix' => '%']
+                        ];
+                    @endphp
                     
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-award text-white"></i>
+                    @foreach($achievements as $achievement)
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-1">
+                            {{ is_numeric($achievement['number']) ? number_format((float)$achievement['number']) : $achievement['number'] }}{{ $achievement['suffix'] ?? '' }}
                         </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-800 mb-2">Proven Results</h3>
-                            <p class="text-slate-600">Trusted by thousands of businesses worldwide with 99.9% uptime and exceptional performance.</p>
-                        </div>
+                        <div class="text-slate-600 text-sm">{{ $achievement['label'] }}</div>
                     </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-rocket text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-800 mb-2">Innovation Focus</h3>
-                            <p class="text-slate-600">Continuously evolving our platform with cutting-edge features and technologies.</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                
-                <a href="/demo-setup" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                    <i class="fas fa-play mr-3"></i>
-                    Experience MidasTech
-                </a>
+
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Meet Our Team
+                </button>
             </div>
             
-            <!-- Stats -->
-            <div class="grid grid-cols-2 gap-6">
-                <div class="bg-white rounded-2xl p-6 shadow-lg text-center hover-lift">
-                    <div class="text-3xl font-bold gradient-text mb-2">10,000+</div>
-                    <div class="text-slate-600">Active Users</div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg text-center hover-lift">
-                    <div class="text-3xl font-bold gradient-text mb-2">99.9%</div>
-                    <div class="text-slate-600">Uptime</div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg text-center hover-lift">
-                    <div class="text-3xl font-bold gradient-text mb-2">500+</div>
-                    <div class="text-slate-600">Companies</div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg text-center hover-lift">
-                    <div class="text-3xl font-bold gradient-text mb-2">24/7</div>
-                    <div class="text-slate-600">Support</div>
+            <div class="relative">
+                <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl p-8 shadow-2xl">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg mb-6">
+                        <h4 class="text-xl font-bold text-slate-800 mb-3">Our Mission</h4>
+                        <p class="text-slate-600">
+                            To accelerate digital transformation by delivering innovative technology solutions 
+                            that empower businesses to achieve unprecedented growth and efficiency.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <h4 class="text-xl font-bold text-slate-800 mb-3">Our Vision</h4>
+                        <p class="text-slate-600">
+                            To be the global leader in technology innovation, setting new standards for 
+                            excellence in digital solutions and client success.
+                        </p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+                Client <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Success Stories</span>
+            </h2>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                Discover how we've helped businesses achieve remarkable results through innovative technology solutions
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @php
+                $testimonials = [
+                    [
+                        'name' => 'Sarah Chen',
+                        'position' => 'CTO, TechFlow Inc.',
+                        'company' => 'TechFlow Inc.',
+                        'content' => 'JetBeam transformed our entire infrastructure. Their cloud solutions reduced our costs by 40% while improving performance dramatically.',
+                        'rating' => 5,
+                        'project' => 'Cloud Migration & Optimization'
+                    ],
+                    [
+                        'name' => 'Michael Rodriguez',
+                        'position' => 'Founder, StartupHub',
+                        'company' => 'StartupHub',
+                        'content' => 'The AI solutions developed by JetBeam have revolutionized our customer service. Response times improved by 300%.',
+                        'rating' => 5,
+                        'project' => 'AI Chatbot Development'
+                    ],
+                    [
+                        'name' => 'Emily Watson',
+                        'position' => 'VP of Technology, RetailMax',
+                        'company' => 'RetailMax',
+                        'content' => 'Outstanding mobile app development. Our user engagement increased by 250% after launching the new app.',
+                        'rating' => 5,
+                        'project' => 'Mobile App Development'
+                    ]
+                ];
+            @endphp
+
+            @foreach($testimonials as $testimonial)
+            <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100">
+                <div class="flex items-center mb-4">
+                    @for($i = 1; $i <= 5; $i++)
+                    <svg class="w-5 h-5 {{ $i <= $testimonial['rating'] ? 'text-yellow-400' : 'text-slate-300' }}" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    @endfor
+                </div>
+                <p class="text-slate-600 mb-6 leading-relaxed italic">"{{ $testimonial['content'] }}"</p>
+                <div class="border-t border-slate-200 pt-6">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            {{ substr($testimonial['name'], 0, 1) }}
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-800">{{ $testimonial['name'] }}</div>
+                            <div class="text-slate-600 text-sm">{{ $testimonial['position'] }}</div>
+                            <div class="text-blue-600 text-sm font-medium">{{ $testimonial['project'] }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="py-20 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
+<section class="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
     <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
-            <div class="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-2 mb-6 border border-white/20">
-                <i class="fas fa-envelope text-blue-300 mr-2"></i>
-                <span class="text-white font-semibold">Get In Touch</span>
-            </div>
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Get Started?
+                Ready to <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Transform</span>?
             </h2>
             <p class="text-xl text-blue-100 max-w-3xl mx-auto">
-                Have questions? Need a custom solution? Our team is here to help you succeed.
+                Let's discuss how JetBeam Technologies can accelerate your digital transformation journey
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <!-- Contact Form -->
             <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-                <h3 class="text-2xl font-bold text-white mb-6">Send us a message</h3>
+                <h3 class="text-2xl font-bold text-white mb-6">Get In Touch</h3>
                 <form class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-white mb-2 font-medium">First Name</label>
-                            <input type="text" class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:border-blue-400 transition-colors duration-300" placeholder="John">
+                            <label class="block text-blue-100 font-medium mb-2">First Name</label>
+                            <input type="text" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-blue-400 focus:bg-white/30 transition-all duration-300" placeholder="John">
                         </div>
                         <div>
-                            <label class="block text-white mb-2 font-medium">Last Name</label>
-                            <input type="text" class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:border-blue-400 transition-colors duration-300" placeholder="Doe">
+                            <label class="block text-blue-100 font-medium mb-2">Last Name</label>
+                            <input type="text" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-blue-400 focus:bg-white/30 transition-all duration-300" placeholder="Doe">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-white mb-2 font-medium">Email</label>
-                        <input type="email" class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:border-blue-400 transition-colors duration-300" placeholder="john@company.com">
+                        <label class="block text-blue-100 font-medium mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-blue-400 focus:bg-white/30 transition-all duration-300" placeholder="john@company.com">
                     </div>
                     <div>
-                        <label class="block text-white mb-2 font-medium">Company</label>
-                        <input type="text" class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:border-blue-400 transition-colors duration-300" placeholder="Your Company">
+                        <label class="block text-blue-100 font-medium mb-2">Company</label>
+                        <input type="text" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-blue-400 focus:bg-white/30 transition-all duration-300" placeholder="Your Company">
                     </div>
                     <div>
-                        <label class="block text-white mb-2 font-medium">Message</label>
-                        <textarea rows="4" class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:border-blue-400 transition-colors duration-300 resize-none" placeholder="Tell us about your project..."></textarea>
+                        <label class="block text-blue-100 font-medium mb-2">Project Type</label>
+                        <select class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-xl text-white focus:outline-none focus:border-blue-400 focus:bg-white/30 transition-all duration-300">
+                            <option value="" class="text-slate-800">Select a service</option>
+                            <option value="cloud" class="text-slate-800">Cloud Infrastructure</option>
+                            <option value="ai" class="text-slate-800">AI Development</option>
+                            <option value="mobile" class="text-slate-800">Mobile Applications</option>
+                            <option value="web" class="text-slate-800">Web Development</option>
+                            <option value="devops" class="text-slate-800">DevOps Solutions</option>
+                            <option value="consulting" class="text-slate-800">Consulting</option>
+                        </select>
                     </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                        <i class="fas fa-paper-plane mr-2"></i>
+                    <div>
+                        <label class="block text-blue-100 font-medium mb-2">Message</label>
+                        <textarea rows="4" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-blue-400 focus:bg-white/30 transition-all duration-300" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                         Send Message
                     </button>
                 </form>
             </div>
 
-            <!-- Contact Info -->
+            <!-- Contact Information -->
             <div class="space-y-8">
                 <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
                     <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
                     <div class="space-y-6">
                         <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-map-marker-alt text-blue-300"></i>
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold mb-1">Address</h4>
-                                <p class="text-blue-100">Tech Park, Innovation Hub<br>Bangalore, Karnataka 560001</p>
+                                <h4 class="text-white font-semibold mb-1">Headquarters</h4>
+                                <p class="text-blue-100">123 Innovation Drive<br>Tech City, TC 12345<br>United States</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-phone text-green-300"></i>
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Phone</h4>
-                                <p class="text-blue-100">+91 98765 43210</p>
+                                <p class="text-blue-100">+1 (555) 123-BEAM<br>+1 (555) 123-2326</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-envelope text-purple-300"></i>
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.83 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Email</h4>
-                                <p class="text-blue-100">contact@midastech.in</p>
+                                <p class="text-blue-100">hello@jetbeam.tech<br>support@jetbeam.tech</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-                    <h3 class="text-2xl font-bold text-white mb-6">Quick Demo</h3>
-                    <p class="text-blue-100 mb-6">Ready to see MidasTech in action? Set up your free demo in minutes!</p>
-                    <a href="/demo-setup" class="block w-full text-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                        <i class="fas fa-rocket mr-3"></i>
-                        Start Free Demo Now
-                    </a>
+                    <h3 class="text-2xl font-bold text-white mb-6">Business Hours</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-blue-100">Monday - Friday</span>
+                            <span class="text-white font-medium">9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-blue-100">Saturday</span>
+                            <span class="text-white font-medium">10:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-blue-100">Sunday</span>
+                            <span class="text-white font-medium">Closed</span>
+                        </div>
+                        <div class="border-t border-white/20 pt-3 mt-4">
+                            <div class="flex justify-between">
+                                <span class="text-blue-100">Emergency Support</span>
+                                <span class="text-green-400 font-medium">24/7 Available</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fade-in 1s ease-out 0.3s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fade-in 1s ease-out 0.6s both;
+}
+
+.w-128 {
+    width: 32rem;
+}
+
+.h-128 {
+    height: 32rem;
+}
+</style>
 @endsection
